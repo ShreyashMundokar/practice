@@ -1,2 +1,2 @@
-print("HELLO, WORLD!!")
-print("Hi, Today is our CC PRACTICAL")
+print("HELLO, EVERYONE!!")
+print("Today is our CC PRACTICAL.")
