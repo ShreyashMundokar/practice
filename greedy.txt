@@ -1,0 +1,19 @@
+def selectionSort(arr, n):
+    for i in range(n):
+        min = i
+        for j in range(i + 1, n):
+            if arr[min] > arr[j]:
+                min = j
+        (arr[i], arr[min]) = (arr[min], arr[i])
+
+
+n = int(input("Enter the number of elements in array: "))
+arr = []
+for i in range(n):
+    ele = int(input(f"Enter array element {i}: "))
+    arr.append(ele)
+
+selectionSort(arr, n)
+print("The sorted array is : \n ")
+
+print(arr)

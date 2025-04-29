@@ -1,0 +1,52 @@
+print("Enter the number of queens")
+N = int(input())
+
+
+if N == 2 or N == 3:
+    print("Chessboard creation is not possible")
+    exit()  
+
+board = [[0] * N for i in range(N)]
+
+def print_board():
+    for row in board:
+        print(row)
+    print()
+    
+def attack(i, j):
+    for k in range(0, N):
+        if board[i][k] == 1 or board[k][j] == 1:
+            return True
+    
+    for k in range(0, N):
+        for l in range(0, N):
+            if (k + l == i + j) or (k - l == i - j):
+                if board[k][l] == 1:
+                    return True
+    return False
+
+
+def N_queens(n):
+    if n == 0:
+        return True
+
+    for i in range(0, N):
+        for j in range(0, N):
+            if not attack(i, j) and board[i][j] != 1:
+                board[i][j] = 1
+                print(f"Placing ({i}, {j})")
+                print_board()
+
+                if N_queens(n - 1):
+                    return True
+                board[i][j] = 0
+                print(f"Backtracking  ({i}, {j})")
+                print_board()
+                
+    return False
+
+if N_queens(N):
+    print("Final Solution")
+    print_board()
+else:
+    print("Chessboard creation is not possible")

@@ -1,0 +1,35 @@
+v=4
+
+def checkcolor(graph,color):
+    for i in range(v):
+        for j in range (i+1, v):
+           if(graph[i][j] == 1 and color[i] == color[j]):
+              return False
+    return True
+def printcolor(color):
+   print("Foloowing colors are:")
+   for i in range (len(color)):
+      print (f"vertex{i+1}= color{color[i]}")
+      
+def main(graph, m, i, color):
+   if(i==v):
+      if(checkcolor(graph,color)):
+         printcolor(color)
+         return True
+      return False
+   for u in range(1, m+1):
+      color [i] = u
+      main(graph, m, i+1, color)
+      color[i] = 0
+      
+graph=( [0,1,1,0],
+        [1,0,0,1],
+        [1,0,0,1],
+        [0,1,1,0])
+        
+m=3
+color=[0]*v
+
+main(graph,m,0, color)
+      
+        

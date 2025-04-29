@@ -1,0 +1,33 @@
+import sys
+
+problem_dict = {
+	"Cannot open the Hospital Website":"Try to check your Internet Connection.",
+	"How to Use Xray Machine":"On the Right side of the Xray machine there is an Booklet to get you upto speed.",
+	"How to get patient Reports":"Patient reports are Available on 3rd Floor or get them at hospital Website ",
+	"What not to wear near CT machine":"Do not wear any metals or any jewelery near an MRI/CT machine",
+	"How to use BP Machine":"1.turn the BP machine on from the On/Off button on top, 2.wrap the the cloth part just above the top of the elbow 3.start the machine  4.Get the reading after the balloon deflates. ",
+	"How to make visitor card":"Ask the nurse assigned to patient to make the card",
+	"How to check blood sugar":"use the glucometer 1.Make a small hole using needle 2.insert the test strip on in the Glucometer",
+	"How to make patient card":"Go to the reception to make the patient card",
+	"How to treat cancer":"you can treat cancer by using chemotherapy",
+	"Stop":"Please type 'exit' to Exit",
+	"How to treat Blood Cancer":"you can treat Blood cancer by blood transfusion or blood replacement", 
+}
+
+def handle_request(user_input):
+	if user_input.lower()=="exit":
+		print("Goodbye")
+		sys.quit()
+	elif user_input in problem_dict:
+		return problem_dict[user_input]
+	else:
+		return "I dont know how to assist with this problem"
+
+
+
+print("Welcome to Hospital Diagnostic System")
+while True:
+	user_input = input(" What is your Problem?")
+	response = handle_request(user_input)
+	print(response) 
+	print("Type 'exit' to exit.")
